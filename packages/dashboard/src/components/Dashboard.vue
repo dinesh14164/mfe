@@ -41,7 +41,7 @@
         </div>
         <div class="highlight-details">
           <i class="pi pi-question-circle"></i>
-          <span>Total Issues</span>
+          <span>Total Issues:</span>
           <span class="count">81</span>
         </div>
       </div>
