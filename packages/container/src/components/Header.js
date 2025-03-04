@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
+import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -26,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+  },
+  action: {
+    margin: theme.spacing(1, 1.5) + ' !important',
+    marginLeft: 'auto !important',
   },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
@@ -81,6 +86,7 @@ export default function Header({ isSignedIn, onSignOut }) {
           >
             App
           </Typography>
+          <Link className={classes.action} component={RouterLink} to={'/ng'}>Career</Link>
           <Button
             color="primary"
             variant="outlined"

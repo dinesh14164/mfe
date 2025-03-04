@@ -12,6 +12,7 @@ const generateClassName = createGenerateClassName({
 const MarketingAppLazy = lazy(() => import("./components/MarketingApp"));
 const AuthAppLazy = lazy(() => import("./components/AuthApp"));
 const DashboardAppLazy = lazy(() => import("./components/DashboardApp"));
+const Career = lazy(() => import('./components/CareerApp'));
 
 const history = createBrowserHistory();
 
@@ -38,6 +39,7 @@ export default function App() {
                                 {!isSignedIn && <Redirect to="/" />}
                                 <DashboardAppLazy />
                             </Route>
+                            <Route path="/ng" component={Career} />
                             <Route path="/" component={MarketingAppLazy} />
                         </Switch>
                     </Suspense>
