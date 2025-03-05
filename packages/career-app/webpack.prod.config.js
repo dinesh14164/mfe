@@ -1,14 +1,12 @@
-const commonConfig = require('./webpack.config');
-const { merge } = require('webpack-merge');
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
 const ModuleFedrationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
-// const sharedMappings = new mf.SharedMappings();
-// sharedMappings.register(
-//   path.join(__dirname, 'tsconfig.json'),
-//   []);
+const sharedMappings = new mf.SharedMappings();
+sharedMappings.register(
+  path.join(__dirname, 'tsconfig.json'),
+  []);
 
 const prodConfig = {
     mode: 'production',
@@ -16,9 +14,12 @@ const prodConfig = {
         filename: '[name].[contenthash].js',
         publicPath: '/career/latest/',
     },
+    optimization: {
+        runtimeChunk: false
+    },
     resolve: {
         alias: {
-        //   ...sharedMappings.getAliases(),
+          ...sharedMappings.getAliases(),
         }
     },
     plugins: [
@@ -26,7 +27,7 @@ const prodConfig = {
             name: 'careerApp',
             filename: 'remoteEntry.js',
             exposes: {
-                './CareerApp': './src/bootstrap',
+                './CareerApp': './src/bootstrap.ts',
             },
             shared: share({
                 "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
@@ -35,10 +36,10 @@ const prodConfig = {
                 "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
                 "zone.js": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
       
-                // ...sharedMappings.getDescriptors()
+                ...sharedMappings.getDescriptors()
             })
         }),
-        // sharedMappings.getPlugin()
+        sharedMappings.getPlugin()
     ],
 };
 
