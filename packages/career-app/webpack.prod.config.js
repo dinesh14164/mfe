@@ -5,10 +5,10 @@ const path = require("path");
 const share = mf.share;
 const ModuleFedrationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
-const sharedMappings = new mf.SharedMappings();
-sharedMappings.register(
-  path.join(__dirname, 'tsconfig.json'),
-  []);
+// const sharedMappings = new mf.SharedMappings();
+// sharedMappings.register(
+//   path.join(__dirname, 'tsconfig.json'),
+//   []);
 
 const prodConfig = {
     mode: 'production',
@@ -18,7 +18,7 @@ const prodConfig = {
     },
     resolve: {
         alias: {
-          ...sharedMappings.getAliases(),
+        //   ...sharedMappings.getAliases(),
         }
     },
     plugins: [
@@ -35,10 +35,10 @@ const prodConfig = {
                 "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
                 "zone.js": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
       
-                ...sharedMappings.getDescriptors()
+                // ...sharedMappings.getDescriptors()
             })
         }),
-        sharedMappings.getPlugin()
+        // sharedMappings.getPlugin()
     ],
 };
 
