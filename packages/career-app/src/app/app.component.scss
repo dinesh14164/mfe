@@ -1,0 +1,37 @@
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.job-listing {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+}
+
+.job-listing:last-child {
+    border-bottom: none;
+}
+
+.apply-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.apply-btn:hover {
+    background: #0056b3;
+}

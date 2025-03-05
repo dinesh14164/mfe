@@ -39,7 +39,7 @@ export default function App() {
                                 {!isSignedIn && <Redirect to="/" />}
                                 <DashboardAppLazy />
                             </Route>
-                            <Route path="/ng" component={Career} />
+                            <Route path="/career" component={Career} />
                             <Route path="/" component={MarketingAppLazy} />
                         </Switch>
                     </Suspense>

@@ -86,7 +86,7 @@ export default function Header({ isSignedIn, onSignOut }) {
           >
             App
           </Typography>
-          <Link className={classes.action} component={RouterLink} to={'/ng'}>Career</Link>
+          <Link className={classes.action} component={RouterLink} to={'/career'}>Career</Link>
           <Button
             color="primary"
             variant="outlined"
